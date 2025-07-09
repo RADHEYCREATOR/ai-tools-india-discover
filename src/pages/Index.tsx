@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import CategoryFilter from '../components/CategoryFilter';
@@ -85,16 +84,7 @@ const Index = () => {
     : tools.filter(tool => tool.category === selectedCategory);
 
   return (
-    <>
-      <Helmet>
-        <title>AIToolsIndia - Discover the Best Free AI Tools in India</title>
-        <meta name="description" content="Find the best free AI tools for students, creators, and professionals in India. Curated collection of ChatGPT, Canva AI, Stable Diffusion, and more." />
-        <meta property="og:title" content="AIToolsIndia - Discover the Best Free AI Tools in India" />
-        <meta property="og:description" content="Find the best free AI tools for students, creators, and professionals in India." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      
-      <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
       <CategoryFilter onCategoryChange={setSelectedCategory} />
@@ -145,7 +135,6 @@ const Index = () => {
       
       <Footer />
     </div>
-    </>
   );
 };
 

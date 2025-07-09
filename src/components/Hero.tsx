@@ -1,25 +1,39 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Search } from 'lucide-react';
 import heroImg from '../assets/hero-bg.jpg';
 
 const Hero = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
 
-  const handleSearch = (e: React.FormEvent) => {
+  // Debounce search input by 300ms
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedQuery(searchQuery);
+    }, 300);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchQuery]);
+
+  const handleSearch = useCallback((e: React.FormEvent) => {
     e.preventDefault();
-    // Handle search functionality
-    console.log('Searching for:', searchQuery);
-  };
+    // Handle search functionality with debounced query
+    console.log('Searching for:', debouncedQuery);
+  }, [debouncedQuery]);
 
   return (
     <div className="relative bg-gradient-to-br from-primary to-primary-dark min-h-[500px] flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div className="absolute inset-0 opacity-20">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0">
         <img 
           src={heroImg} 
           alt="AI Tools Background" 
           className="w-full h-full object-cover"
+          loading="lazy"
         />
+        <div className="absolute inset-0 gradient-hero-overlay"></div>
       </div>
       
       {/* Content */}
@@ -45,6 +59,7 @@ const Hero = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 text-lg border-0 rounded-2xl focus:outline-none focus:ring-2 focus:ring-accent shadow-xl"
+                aria-label="Search AI tools"
               />
             </div>
             <button

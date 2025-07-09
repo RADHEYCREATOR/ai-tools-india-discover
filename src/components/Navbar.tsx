@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo-refined.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +21,9 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <img src={logo} alt="AIToolsIndia" className="h-8 w-8" />
-              <span className="text-xl font-bold text-primary font-poppins">AIToolsIndia</span>
+              <span className="text-xl font-bold text-primary font-poppins tracking-tight">
+                AIToolsIndia
+              </span>
             </Link>
           </div>
 
@@ -46,6 +48,7 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-primary hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
               aria-expanded="false"
+              aria-label="Open menu"
             >
               <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (

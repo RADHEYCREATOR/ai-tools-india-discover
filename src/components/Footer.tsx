@@ -37,15 +37,35 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Legal Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Legal</h4>
+            <ul className="space-y-2">
+              <li><a href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="/terms" className="text-gray-400 hover:text-white transition-colors">Terms of Service</a></li>
+            </ul>
+          </div>
+
           {/* Contact */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <p className="text-gray-400 mb-2">
+            <p className="text-gray-400 mb-4">
               <a href="mailto:contact@aitoolsindia.in" className="hover:text-white transition-colors">
                 contact@aitoolsindia.in
               </a>
             </p>
-            <p className="text-gray-400">
+            <div className="flex space-x-4">
+              <a href="https://linkedin.com/company/aitoolsindia" className="text-gray-400 hover:text-white transition-colors">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="https://twitter.com/aitoolsindia" className="text-gray-400 hover:text-white transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="mailto:contact@aitoolsindia.in" className="text-gray-400 hover:text-white transition-colors">
+                <Mail className="h-5 w-5" />
+              </a>
+            </div>
+            <p className="text-gray-400 mt-4">
               Made with ❤️ in India
             </p>
           </div>

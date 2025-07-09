@@ -14,8 +14,12 @@ interface ToolCardProps {
 }
 
 const ToolCard = ({ tool }: ToolCardProps) => {
+  const handleCardClick = () => {
+    window.open(tool.website, '_blank');
+  };
+
   return (
-    <div className="tool-card group">
+    <div className="tool-card group" onClick={handleCardClick}>
       {/* Tool Image */}
       <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">
         <img 
@@ -52,8 +56,14 @@ const ToolCard = ({ tool }: ToolCardProps) => {
             <span className="text-sm text-gray-600">{tool.rating}</span>
           </div>
           
-          <button className="btn-primary text-sm py-2 px-4 flex items-center space-x-2">
-            <span>Learn More</span>
+          <button 
+            className="btn-primary text-sm py-2 px-4 flex items-center space-x-2"
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(tool.website, '_blank');
+            }}
+          >
+            <span>Visit Website</span>
             <ExternalLink className="h-4 w-4" />
           </button>
         </div>

@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Home, ArrowLeft } from "lucide-react";
 
@@ -22,13 +22,13 @@ const NotFound = () => {
         </p>
         
         <div className="space-y-4">
-          <a 
-            href="/" 
+          <Link 
+            to="/" 
             className="btn-primary inline-flex items-center space-x-2"
           >
             <Home className="h-4 w-4" />
             <span>Go to Homepage</span>
-          </a>
+          </Link>
           
           <button 
             onClick={() => window.history.back()}

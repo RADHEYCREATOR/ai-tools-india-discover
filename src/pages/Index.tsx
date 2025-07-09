@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import CategoryFilter from '../components/CategoryFilter';
@@ -105,9 +106,9 @@ const Index = () => {
           </div>
           
           <div className="text-center mt-12">
-            <button className="btn-outline">
+            <Link to="/categories" className="btn-outline">
               View All Tools
-            </button>
+            </Link>
           </div>
         </div>
       </section>

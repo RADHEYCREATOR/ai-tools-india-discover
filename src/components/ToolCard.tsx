@@ -15,7 +15,7 @@ interface ToolCardProps {
 
 const ToolCard = ({ tool }: ToolCardProps) => {
   return (
-    <div className="tool-card">
+    <div className="tool-card group">
       {/* Tool Image */}
       <div className="w-full h-48 bg-gray-100 rounded-lg mb-4 overflow-hidden">
         <img 
